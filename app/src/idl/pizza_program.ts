@@ -51,15 +51,15 @@ export type PizzaProgram = {
           "type": "u8"
         },
         {
-          "name": "pepperoni",
+          "name": "demicolor",
           "type": "u8"
         },
         {
-          "name": "mushrooms",
+          "name": "permanentcolor",
           "type": "u8"
         },
         {
-          "name": "olives",
+          "name": "silkpress",
           "type": "u8"
         }
       ]
@@ -76,15 +76,15 @@ export type PizzaProgram = {
             "type": "u8"
           },
           {
-            "name": "pepperoni",
+            "name": "demicolor",
             "type": "u8"
           },
           {
-            "name": "mushrooms",
+            "name": "permanentcolor",
             "type": "u8"
           },
           {
-            "name": "olives",
+            "name": "silkpress",
             "type": "u8"
           }
         ]
@@ -146,15 +146,15 @@ export const IDL: PizzaProgram = {
           "type": "u8"
         },
         {
-          "name": "pepperoni",
+          "name": "demicolor",
           "type": "u8"
         },
         {
-          "name": "mushrooms",
+          "name": "permanentcolor",
           "type": "u8"
         },
         {
-          "name": "olives",
+          "name": "silkpress",
           "type": "u8"
         }
       ]
@@ -171,15 +171,15 @@ export const IDL: PizzaProgram = {
             "type": "u8"
           },
           {
-            "name": "pepperoni",
+            "name": "demicolor",
             "type": "u8"
           },
           {
-            "name": "mushrooms",
+            "name": "permanentcolor",
             "type": "u8"
           },
           {
-            "name": "olives",
+            "name": "silkpress",
             "type": "u8"
           }
         ]

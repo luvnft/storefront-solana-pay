@@ -13,9 +13,9 @@ type TransactionRequestQRProps = {
   reference: PublicKey;
   total: number;
   order: number;
-  pepperoni: number;
-  mushrooms: number;
-  olives: number;
+  demicolor: number;
+  permanentcolor: number;
+  silkpress: number;
 };
 
 const queryBuilder = (baseUrl: string, params: string[][]) => {
@@ -25,7 +25,7 @@ const queryBuilder = (baseUrl: string, params: string[][]) => {
 }
 
 const PayQR: FC<TransactionRequestQRProps> = (
-  { reference, total, order, pepperoni, mushrooms, olives }
+  { reference, total, order, demicolor, permanentcolor, silkpress }
 ) => {
   const [currentTokenSelection, setCurrentTokenSelection] =
     useState<SupportedSplToken>({ symbol: 'SOL', mint: 'SOL' });
@@ -37,9 +37,9 @@ const PayQR: FC<TransactionRequestQRProps> = (
       ['reference', reference.toBase58()],
       ['amount', (total * 0.001).toString()],
       ['order', order.toString()],
-      ['pepperoni', pepperoni.toString()],
-      ['mushrooms', mushrooms.toString()],
-      ['olives', olives.toString()],
+      ['demicolor', demicolor.toString()],
+      ['permanentcolor', permanentcolor.toString()],
+      ['silkpress', silkpress.toString()],
     ];
     if (currentTokenSelection.mint) params.push(['token', currentTokenSelection.mint]);
     const apiUrl = queryBuilder(
@@ -57,7 +57,7 @@ const PayQR: FC<TransactionRequestQRProps> = (
       ref.current.innerHTML = '';
       qr.append(ref.current);
     }
-  }, [total, reference, currentTokenSelection, order, pepperoni, mushrooms, olives]);
+  }, [total, reference, currentTokenSelection, order, demicolor, permanentcolor, silkpress]);
 
   return (
     <div className='bg-white shadow-md rounded-2xl border-solid border border-black w-auto text-center flex flex-col justify-between mx-auto'>

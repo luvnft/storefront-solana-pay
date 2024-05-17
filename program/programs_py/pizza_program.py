@@ -8,18 +8,18 @@ declare_id('9v72LRyuGWQtrtNEkzRt7yLv8JvokMSY9vVy2Kn8Kkew')
 
 class PizzaOrder(Account):
     order: u8
-    pepperoni: u8
-    mushrooms: u8
-    olives: u8
+    demicolor: u8
+    permanentcolor: u8
+    silkpress: u8
 
 
 @instruction
-def create_pizza_order(payer: Signer, pizza_order: Empty[PizzaOrder], order: u8, pepperoni: u8, mushrooms: u8, olives: u8):
+def create_pizza_order(payer: Signer, pizza_order: Empty[PizzaOrder], order: u8, demicolor: u8, permanentcolor: u8, silkpress: u8):
     pizza_order = pizza_order.init(
         payer=payer,
         seeds=['solami_pizza', order, payer]
     )
     pizza_order.order = order
-    pizza_order.pepperoni = pepperoni
-    pizza_order.mushrooms = mushrooms
-    pizza_order.olives = olives
+    pizza_order.demicolor = demicolor
+    pizza_order.permanentcolor = permanentcolor
+    pizza_order.silkpress = silkpress

@@ -6,20 +6,20 @@ import { Program, Provider } from "@coral-xyz/anchor";
 
 export class PizzaOrder {
   order: number;
-  pepperoni: number;
-  mushrooms: number;
-  olives: number;
+  demicolor: number;
+  permanentcolor: number;
+  silkpress: number;
 
   constructor(props: {
     order: number;
-    pepperoni: number;
-    mushrooms: number;
-    olives: number;
+    demicolor: number;
+    permanentcolor: number;
+    silkpress: number;
   }) {
     this.order = props.order;
-    this.pepperoni = props.pepperoni;
-    this.mushrooms = props.mushrooms;
-    this.olives = props.olives;
+    this.demicolor = props.demicolor;
+    this.permanentcolor = props.permanentcolor;
+    this.silkpress = props.silkpress;
   }
 }
 
@@ -51,9 +51,9 @@ export const createWriteOrderInstruction = async (
   return await program.methods
     .createPizzaOrder(
       pizzaOrder.order,
-      pizzaOrder.pepperoni,
-      pizzaOrder.mushrooms,
-      pizzaOrder.olives
+      pizzaOrder.demicolor,
+      pizzaOrder.permanentcolor,
+      pizzaOrder.silkpress
     )
     .accounts({
       pizzaOrder: getOrderPublicKey(pizzaOrder.order, payer),

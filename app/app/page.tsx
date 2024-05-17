@@ -8,9 +8,9 @@ import { CONNECTION } from '@/src/util/const';
 
 
 type PizzaOrderType = {
-  pepperoni: number,
-  mushrooms: number,
-  olives: number,
+  demicolor: number,
+  permanentcolor: number,
+  silkpress: number,
 }
 
 export default function Home() {
@@ -30,20 +30,20 @@ export default function Home() {
   };
 
   const subtractPepperoni = () => {
-    if (pizzaOrder && pizzaOrder.pepperoni != 0) {
-      setPizzaOrder({ ...pizzaOrder, pepperoni: pizzaOrder.pepperoni -= 1 })
+    if (pizzaOrder && pizzaOrder.demicolor != 0) {
+      setPizzaOrder({ ...pizzaOrder, demicolor: pizzaOrder.demicolor -= 1 })
       setTotal(total - 0.5)
     }
   };
   const subtractMushrooms = () => {
-    if (pizzaOrder && pizzaOrder.pepperoni != 0) {
-      setPizzaOrder({ ...pizzaOrder, mushrooms: pizzaOrder.mushrooms -= 1 })
+    if (pizzaOrder && pizzaOrder.demicolor != 0) {
+      setPizzaOrder({ ...pizzaOrder, permanentcolor: pizzaOrder.permanentcolor -= 1 })
       setTotal(total - 0.5)
     }
   };
   const subtractOlives = () => {
-    if (pizzaOrder && pizzaOrder.pepperoni != 0) {
-      setPizzaOrder({ ...pizzaOrder, olives: pizzaOrder.olives -= 1 })
+    if (pizzaOrder && pizzaOrder.demicolor != 0) {
+      setPizzaOrder({ ...pizzaOrder, silkpress: pizzaOrder.silkpress -= 1 })
       setTotal(total - 0.5)
     }
   };
@@ -55,9 +55,9 @@ export default function Home() {
     setOrderNumber(randomOrderNumber);
     setPizzaOrder(new PizzaOrder({
       order: randomOrderNumber,
-      pepperoni: 0,
-      mushrooms: 0,
-      olives: 0,
+      demicolor: 0,
+      permanentcolor: 0,
+      silkpress: 0,
     }));
   }, []);
 
@@ -116,20 +116,20 @@ export default function Home() {
                     <li
                       className='my-2 flex flex-row justify-center mx-16 text-lg'
                     >
-                      <p className='font-bold'>Pepperoni</p>
-                      <p className='font-bold ml-auto text-red-600'>{onChainOrderDetails.pepperoni}</p>
+                      <p className='font-bold'>Demi Color</p>
+                      <p className='font-bold ml-auto text-red-600'>{onChainOrderDetails.demicolor}</p>
                     </li>
                     <li
                       className='my-2 flex flex-row justify-left mx-16 text-lg'
                     >
-                      <p className='font-bold'>Mushrooms</p>
-                      <p className='font-bold ml-auto text-red-600'>{onChainOrderDetails.mushrooms}</p>
+                      <p className='font-bold'>Permanent Color</p>
+                      <p className='font-bold ml-auto text-red-600'>{onChainOrderDetails.permanentcolor}</p>
                     </li>
                     <li
                       className='my-2 flex flex-row justify-left mx-16 text-lg'
                     >
-                      <p className='font-bold'>Olives</p>
-                      <p className='font-bold ml-auto text-red-600'>{onChainOrderDetails.olives}</p>
+                      <p className='font-bold'>Silk Press</p>
+                      <p className='font-bold ml-auto text-red-600'>{onChainOrderDetails.silkpress}</p>
                     </li>
                   </ul>
                 </div>
@@ -150,34 +150,34 @@ export default function Home() {
 
               {/* Order Builder */}
               <div className='bg-white shadow-md rounded-xl border-solid border border-black mx-auto w-fit p-2 mb-2'>
-                <h4 className='text-xl text-slate-700'>Valentin&apos;s Pizza Shop</h4>
+                <h4 className='text-xl text-slate-700'>@HairColorVet</h4>
               </div>
               <div className='bg-white shadow-md rounded-2xl border-solid border border-black mx-auto w-fit p-2 mb-2'>
                 <div className='text-center px-3 pb-6 pt-2'>
                   <p className='text-sm text-gray-700 my-4'>
-                    One delicious pizza with the following ingredients:
+                  📍 Lawrenceville,GA What3Words.com ///unfunded.documents.touchy
                   </p>
                   <ul className='text-sm text-gray-600'>
                     <li className='my-2 flex flex-row justify-left mx-10 text-lg'>
-                      <p className='font-bold'>Pepperoni</p>
-                      <p className='font-bold ml-auto text-red-600'>{pizzaOrder.pepperoni}</p>
-                      <button className='ml-6' onClick={() => addAddon({ ...pizzaOrder, pepperoni: pizzaOrder.pepperoni += 1 })}><span>+</span></button>
+                      <p className='font-bold'>Demi Color</p>
+                      <p className='font-bold ml-auto text-red-600'>{pizzaOrder.demicolor}</p>
+                      <button className='ml-6' onClick={() => addAddon({ ...pizzaOrder, demicolor: pizzaOrder.demicolor += 1 })}><span>+</span></button>
                       <button
                         className='ml-4 mr-4'
                         onClick={() => subtractPepperoni()}><span>-</span></button>
                     </li>
                     <li className='my-2 flex flex-row justify-left mx-10 text-lg'>
-                      <p className='font-bold'>Mushrooms</p>
-                      <p className='font-bold ml-auto text-red-600'>{pizzaOrder?.mushrooms}</p>
-                      <button className='ml-6' onClick={() => addAddon({ ...pizzaOrder, mushrooms: pizzaOrder.mushrooms += 1 })}><span>+</span></button>
+                      <p className='font-bold'>Permanent Color</p>
+                      <p className='font-bold ml-auto text-red-600'>{pizzaOrder?.permanentcolor}</p>
+                      <button className='ml-6' onClick={() => addAddon({ ...pizzaOrder, permanentcolor: pizzaOrder.permanentcolor += 1 })}><span>+</span></button>
                       <button
                         className='ml-4 mr-4'
                         onClick={() => subtractMushrooms()}><span>-</span></button>
                     </li>
                     <li className='my-2 flex flex-row justify-left mx-10 text-lg'>
-                      <p className='font-bold'>Olives</p>
-                      <p className='font-bold ml-auto text-red-600'>{pizzaOrder?.olives}</p>
-                      <button className='ml-6' onClick={() => addAddon({ ...pizzaOrder, olives: pizzaOrder.olives += 1 })}><span>+</span></button>
+                      <p className='font-bold'>Silk Press</p>
+                      <p className='font-bold ml-auto text-red-600'>{pizzaOrder?.silkpress}</p>
+                      <button className='ml-6' onClick={() => addAddon({ ...pizzaOrder, silkpress: pizzaOrder.silkpress += 1 })}><span>+</span></button>
                       <button
                         className='ml-4 mr-4'
                         onClick={() => subtractOlives()}><span>-</span></button>
@@ -196,9 +196,9 @@ export default function Home() {
                   reference={reference}
                   total={total}
                   order={orderNumber}
-                  pepperoni={pizzaOrder.pepperoni}
-                  mushrooms={pizzaOrder.mushrooms}
-                  olives={pizzaOrder.olives}
+                  demicolor={pizzaOrder.demicolor}
+                  permanentcolor={pizzaOrder.permanentcolor}
+                  silkpress={pizzaOrder.silkpress}
                 />
               )}
             </div>

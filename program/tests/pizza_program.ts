@@ -28,11 +28,11 @@ describe("pizza_program", () => {
     console.log("Payer Address: ", provider.wallet.publicKey.toBase58());
 
     // Create order
-    const pepperoni = 3;
-    const mushrooms = 2;
-    const olives = 1;
+    const demicolor = 3;
+    const permanentcolor = 2;
+    const silkpress = 1;
     const transaction = await program.methods
-      .createPizzaOrder(orderNumber, pepperoni, mushrooms, olives)
+      .createPizzaOrder(orderNumber, demicolor, permanentcolor, silkpress)
       .accounts({
         payer: provider.wallet.publicKey,
         pizzaOrder: orderPublicKey,
@@ -44,13 +44,13 @@ describe("pizza_program", () => {
     const orderAccount = await program.account.pizzaOrder.fetch(orderPublicKey);
 
     console.log("Order: ", orderAccount.order);
-    console.log("Pepperoni: ", orderAccount.pepperoni);
-    console.log("Mushrooms: ", orderAccount.mushrooms);
-    console.log("Olives: ", orderAccount.olives);
+    console.log("Demi Color: ", orderAccount.demicolor);
+    console.log("Permanent Color: ", orderAccount.permanentcolor);
+    console.log("Silk Press: ", orderAccount.silkpress);
 
     assert.equal(orderAccount.order, orderNumber);
-    assert.equal(orderAccount.pepperoni, pepperoni);
-    assert.equal(orderAccount.mushrooms, mushrooms);
-    assert.equal(orderAccount.olives, olives);
+    assert.equal(orderAccount.demicolor, demicolor);
+    assert.equal(orderAccount.permanentcolor, permanentcolor);
+    assert.equal(orderAccount.silkpress, silkpress);
   });
 });

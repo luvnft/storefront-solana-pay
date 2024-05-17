@@ -169,7 +169,7 @@ mod pizza_program {
     use std::collections::HashMap;
 
     #[derive(Accounts)]
-    # [instruction (order : u8 , pepperoni : u8 , mushrooms : u8 , olives : u8)]
+    # [instruction (order : u8 , demicolor : u8 , permanentcolor : u8 , silkpress : u8)]
     pub struct CreatePizzaOrder<'info> {
         #[account(mut)]
         pub payer: Signer<'info>,
@@ -182,9 +182,9 @@ mod pizza_program {
     pub fn create_pizza_order(
         ctx: Context<CreatePizzaOrder>,
         order: u8,
-        pepperoni: u8,
-        mushrooms: u8,
-        olives: u8,
+        demicolor: u8,
+        permanentcolor: u8,
+        silkpress: u8,
     ) -> Result<()> {
         let mut programs = HashMap::new();
 
@@ -208,9 +208,9 @@ mod pizza_program {
             payer.clone(),
             pizza_order.clone(),
             order,
-            pepperoni,
-            mushrooms,
-            olives,
+            demicolor,
+            permanentcolor,
+            silkpress,
         );
 
         dot::program::PizzaOrder::store(pizza_order.account);
