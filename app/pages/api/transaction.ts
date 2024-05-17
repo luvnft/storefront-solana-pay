@@ -59,7 +59,7 @@ const get = async (req: NextApiRequest, res: NextApiResponse<GET>) => {
 };
 
 const post = async (req: NextApiRequest, res: NextApiResponse<POST>) => {
-  const message = "Thanks for buying a Solami pizza!";
+  const message = "Thanks for supporting my business!";
 
   const accountField = getFromPayload(req, "Body", "account");
   const referenceField = getFromPayload(req, "Query", "reference");
