@@ -185,7 +185,7 @@ export default function Home() {
                   </ul>
                   <h2 className='mt-8 text-2xl'>
                     Order Total :{' '}
-                    <span className='front-heavy text-blue-600'>{total}$SOL</span>
+                    <span className='front-heavy text-blue-600'>{total}</span>
                   </h2>
                 </div>
               </div>
