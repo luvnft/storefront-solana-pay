@@ -98,47 +98,47 @@ export default function Home() {
   }, [orderNumber, orderPublicKey, reference]);
 
   return (
-    <main className='min-h-screen bg-red-500 p-2'>
+    <main className='min-h-screen p-2 bg-red-500'>
       {pizzaOrder && <div className="w-full min-h-screen bg-no-repeat bg-cover bg-center bg-fixed bg-[url('../public/pizzeria.jpg')]">
-        <div className="w-full min-h-screen bg-no-repeat bg-cover bg-center bg-fixed bg-red-900 bg-opacity-60 pt-4">
+        <div className="w-full min-h-screen pt-4 bg-fixed bg-red-900 bg-center bg-no-repeat bg-cover bg-opacity-60">
           {onChainOrderDetails ?
 
-            <div className='bg-white shadow-md rounded-2xl border-solid border border-black mx-auto w-fit p-2'>
-              <div className='text-center px-3 pb-6 pt-2'>
+            <div className='p-2 mx-auto bg-white border border-black border-solid shadow-md rounded-2xl w-fit'>
+              <div className='px-3 pt-2 pb-6 text-center'>
                 <h2 className='my-8 text-2xl'>
                   Confirmed!{' '}
                 </h2>
-                <p className='text-sm text-gray-700 my-4'>
+                <p className='my-4 text-sm text-gray-700'>
                   Your Order :
                 </p>
-                <div className='text-center mx-auto w-96'>
+                <div className='mx-auto text-center w-96'>
                   <ul className='text-sm text-gray-600'>
                     <li
-                      className='my-2 flex flex-row justify-center mx-16 text-lg'
+                      className='flex flex-row justify-center mx-16 my-2 text-lg'
                     >
-                      <p className='font-bold'>Demi Color</p>
-                      <p className='font-bold ml-auto text-red-600'>{onChainOrderDetails.demicolor}</p>
+                      <p className='font-bold'>Solana QR POS</p>
+                      <p className='ml-auto font-bold text-red-600'>{onChainOrderDetails.demicolor}</p>
                     </li>
                     <li
-                      className='my-2 flex flex-row justify-left mx-16 text-lg'
+                      className='flex flex-row mx-16 my-2 text-lg justify-left'
                     >
-                      <p className='font-bold'>Permanent Color</p>
-                      <p className='font-bold ml-auto text-red-600'>{onChainOrderDetails.permanentcolor}</p>
+                      <p className='font-bold'>Branded LUV NFT</p>
+                      <p className='ml-auto font-bold text-red-600'>{onChainOrderDetails.permanentcolor}</p>
                     </li>
                     <li
-                      className='my-2 flex flex-row justify-left mx-16 text-lg'
+                      className='flex flex-row mx-16 my-2 text-lg justify-left'
                     >
-                      <p className='font-bold'>Silk Press</p>
-                      <p className='font-bold ml-auto text-red-600'>{onChainOrderDetails.silkpress}</p>
+                      <p className='font-bold'>HealXYZ Session</p>
+                      <p className='ml-auto font-bold text-red-600'>{onChainOrderDetails.silkpress}</p>
                     </li>
                   </ul>
                 </div>
-                <p className='text-sm text-gray-700 mt-6 mx-auto'>
+                <p className='mx-auto mt-6 text-sm text-gray-700'>
                   On-Chain Address :
                 </p>
-                <p className='text-sm mt-2 mx-auto'>
+                <p className='mx-auto mt-2 text-sm'>
                   <a
-                    className='underline text-blue-600'
+                    className='text-blue-600 underline'
                     target='_blank' 
                     rel='noopener noreferrer' 
                     href={`https://explorer.solana.com/address/${orderPublicKey?.toBase58()}/anchor-account?cluster=devnet`}>{orderPublicKey?.toBase58()}</a>
@@ -149,34 +149,34 @@ export default function Home() {
             <div className='flex flex-col justify-center'>
 
               {/* Order Builder */}
-              <div className='bg-white shadow-md rounded-xl border-solid border border-black mx-auto w-fit p-2 mb-2'>
-                <h4 className='text-xl text-slate-700'>@HairColorVet</h4>
+              <div className='p-2 mx-auto mb-2 bg-white border border-black border-solid shadow-md rounded-xl w-fit'>
+                <h4 className='text-xl text-slate-700'>@WizardofHahz</h4>
               </div>
-              <div className='bg-white shadow-md rounded-2xl border-solid border border-black mx-auto w-fit p-2 mb-2'>
-                <div className='text-center px-3 pb-6 pt-2'>
-                  <p className='text-sm text-gray-700 my-4'>
-                  📍 Lawrenceville,GA What3Words.com ///unfunded.documents.touchy
+              <div className='p-2 mx-auto mb-2 bg-white border border-black border-solid shadow-md rounded-2xl w-fit'>
+                <div className='px-3 pt-2 pb-6 text-center'>
+                  <p className='my-4 text-sm text-gray-700'>
+                  📍 Atlanta,GA What3Words.com ///notebook.roofer.pushed
                   </p>
                   <ul className='text-sm text-gray-600'>
-                    <li className='my-2 flex flex-row justify-left mx-10 text-lg'>
-                      <p className='font-bold'>Demi Color</p>
-                      <p className='font-bold ml-auto text-red-600'>{pizzaOrder.demicolor}</p>
+                    <li className='flex flex-row mx-10 my-2 text-lg justify-left'>
+                      <p className='font-bold'>Solana QR POS</p>
+                      <p className='ml-auto font-bold text-red-600'>{pizzaOrder.demicolor}</p>
                       <button className='ml-6' onClick={() => addAddon({ ...pizzaOrder, demicolor: pizzaOrder.demicolor += 1 })}><span>+</span></button>
                       <button
                         className='ml-4 mr-4'
                         onClick={() => subtractPepperoni()}><span>-</span></button>
                     </li>
-                    <li className='my-2 flex flex-row justify-left mx-10 text-lg'>
-                      <p className='font-bold'>Permanent Color</p>
-                      <p className='font-bold ml-auto text-red-600'>{pizzaOrder?.permanentcolor}</p>
+                    <li className='flex flex-row mx-10 my-2 text-lg justify-left'>
+                      <p className='font-bold'>Branded LUV NFT</p>
+                      <p className='ml-auto font-bold text-red-600'>{pizzaOrder?.permanentcolor}</p>
                       <button className='ml-6' onClick={() => addAddon({ ...pizzaOrder, permanentcolor: pizzaOrder.permanentcolor += 1 })}><span>+</span></button>
                       <button
                         className='ml-4 mr-4'
                         onClick={() => subtractMushrooms()}><span>-</span></button>
                     </li>
-                    <li className='my-2 flex flex-row justify-left mx-10 text-lg'>
-                      <p className='font-bold'>Silk Press</p>
-                      <p className='font-bold ml-auto text-red-600'>{pizzaOrder?.silkpress}</p>
+                    <li className='flex flex-row mx-10 my-2 text-lg justify-left'>
+                      <p className='font-bold'>HealXYZ Session</p>
+                      <p className='ml-auto font-bold text-red-600'>{pizzaOrder?.silkpress}</p>
                       <button className='ml-6' onClick={() => addAddon({ ...pizzaOrder, silkpress: pizzaOrder.silkpress += 1 })}><span>+</span></button>
                       <button
                         className='ml-4 mr-4'
@@ -185,7 +185,7 @@ export default function Home() {
                   </ul>
                   <h2 className='mt-8 text-2xl'>
                     Order Total :{' '}
-                    <span className='front-heavy text-blue-600'>{total}</span>
+                    <span className='text-blue-600 front-heavy'>{total}</span>
                   </h2>
                 </div>
               </div>

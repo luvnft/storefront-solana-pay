@@ -44,9 +44,9 @@ describe("pizza_program", () => {
     const orderAccount = await program.account.pizzaOrder.fetch(orderPublicKey);
 
     console.log("Order: ", orderAccount.order);
-    console.log("Demi Color: ", orderAccount.demicolor);
-    console.log("Permanent Color: ", orderAccount.permanentcolor);
-    console.log("Silk Press: ", orderAccount.silkpress);
+    console.log("Solana QR POS: ", orderAccount.demicolor);
+    console.log("Branded LUV NFT: ", orderAccount.permanentcolor);
+    console.log("HealXYZ Session: ", orderAccount.silkpress);
 
     assert.equal(orderAccount.order, orderNumber);
     assert.equal(orderAccount.demicolor, demicolor);
