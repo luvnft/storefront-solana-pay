@@ -8,9 +8,9 @@ import { CONNECTION } from '@/src/util/const';
 
 
 type PizzaOrderType = {
-  demicolor: number,
-  permanentcolor: number,
-  silkpress: number,
+  webpos: number,
+  luvnft: number,
+  healxyz: number,
 }
 
 export default function Home() {
@@ -30,20 +30,20 @@ export default function Home() {
   };
 
   const subtractPepperoni = () => {
-    if (pizzaOrder && pizzaOrder.demicolor != 0) {
-      setPizzaOrder({ ...pizzaOrder, demicolor: pizzaOrder.demicolor -= 1 })
+    if (pizzaOrder && pizzaOrder.webpos != 0) {
+      setPizzaOrder({ ...pizzaOrder, webpos: pizzaOrder.webpos -= 1 })
       setTotal(total - 0.5)
     }
   };
   const subtractMushrooms = () => {
-    if (pizzaOrder && pizzaOrder.demicolor != 0) {
-      setPizzaOrder({ ...pizzaOrder, permanentcolor: pizzaOrder.permanentcolor -= 1 })
+    if (pizzaOrder && pizzaOrder.webpos != 0) {
+      setPizzaOrder({ ...pizzaOrder, luvnft: pizzaOrder.luvnft -= 1 })
       setTotal(total - 0.5)
     }
   };
   const subtractOlives = () => {
-    if (pizzaOrder && pizzaOrder.demicolor != 0) {
-      setPizzaOrder({ ...pizzaOrder, silkpress: pizzaOrder.silkpress -= 1 })
+    if (pizzaOrder && pizzaOrder.webpos != 0) {
+      setPizzaOrder({ ...pizzaOrder, healxyz: pizzaOrder.healxyz -= 1 })
       setTotal(total - 0.5)
     }
   };
@@ -55,9 +55,9 @@ export default function Home() {
     setOrderNumber(randomOrderNumber);
     setPizzaOrder(new PizzaOrder({
       order: randomOrderNumber,
-      demicolor: 0,
-      permanentcolor: 0,
-      silkpress: 0,
+      webpos: 0,
+      luvnft: 0,
+      healxyz: 0,
     }));
   }, []);
 
@@ -117,19 +117,19 @@ export default function Home() {
                       className='flex flex-row justify-center mx-16 my-2 text-lg'
                     >
                       <p className='font-bold'>Solana QR POS</p>
-                      <p className='ml-auto font-bold text-red-600'>{onChainOrderDetails.demicolor}</p>
+                      <p className='ml-auto font-bold text-red-600'>{onChainOrderDetails.webpos}</p>
                     </li>
                     <li
                       className='flex flex-row mx-16 my-2 text-lg justify-left'
                     >
                       <p className='font-bold'>Branded LUV NFT</p>
-                      <p className='ml-auto font-bold text-red-600'>{onChainOrderDetails.permanentcolor}</p>
+                      <p className='ml-auto font-bold text-red-600'>{onChainOrderDetails.luvnft}</p>
                     </li>
                     <li
                       className='flex flex-row mx-16 my-2 text-lg justify-left'
                     >
                       <p className='font-bold'>HealXYZ Session</p>
-                      <p className='ml-auto font-bold text-red-600'>{onChainOrderDetails.silkpress}</p>
+                      <p className='ml-auto font-bold text-red-600'>{onChainOrderDetails.healxyz}</p>
                     </li>
                   </ul>
                 </div>
@@ -160,24 +160,24 @@ export default function Home() {
                   <ul className='text-sm text-gray-600'>
                     <li className='flex flex-row mx-10 my-2 text-lg justify-left'>
                       <p className='font-bold'>Solana QR POS</p>
-                      <p className='ml-auto font-bold text-red-600'>{pizzaOrder.demicolor}</p>
-                      <button className='ml-6' onClick={() => addAddon({ ...pizzaOrder, demicolor: pizzaOrder.demicolor += 1 })}><span>+</span></button>
+                      <p className='ml-auto font-bold text-red-600'>{pizzaOrder.webpos}</p>
+                      <button className='ml-6' onClick={() => addAddon({ ...pizzaOrder, webpos: pizzaOrder.webpos += 1 })}><span>+</span></button>
                       <button
                         className='ml-4 mr-4'
                         onClick={() => subtractPepperoni()}><span>-</span></button>
                     </li>
                     <li className='flex flex-row mx-10 my-2 text-lg justify-left'>
                       <p className='font-bold'>Branded LUV NFT</p>
-                      <p className='ml-auto font-bold text-red-600'>{pizzaOrder?.permanentcolor}</p>
-                      <button className='ml-6' onClick={() => addAddon({ ...pizzaOrder, permanentcolor: pizzaOrder.permanentcolor += 1 })}><span>+</span></button>
+                      <p className='ml-auto font-bold text-red-600'>{pizzaOrder?.luvnft}</p>
+                      <button className='ml-6' onClick={() => addAddon({ ...pizzaOrder, luvnft: pizzaOrder.luvnft += 1 })}><span>+</span></button>
                       <button
                         className='ml-4 mr-4'
                         onClick={() => subtractMushrooms()}><span>-</span></button>
                     </li>
                     <li className='flex flex-row mx-10 my-2 text-lg justify-left'>
                       <p className='font-bold'>HealXYZ Session</p>
-                      <p className='ml-auto font-bold text-red-600'>{pizzaOrder?.silkpress}</p>
-                      <button className='ml-6' onClick={() => addAddon({ ...pizzaOrder, silkpress: pizzaOrder.silkpress += 1 })}><span>+</span></button>
+                      <p className='ml-auto font-bold text-red-600'>{pizzaOrder?.healxyz}</p>
+                      <button className='ml-6' onClick={() => addAddon({ ...pizzaOrder, healxyz: pizzaOrder.healxyz += 1 })}><span>+</span></button>
                       <button
                         className='ml-4 mr-4'
                         onClick={() => subtractOlives()}><span>-</span></button>
@@ -196,9 +196,9 @@ export default function Home() {
                   reference={reference}
                   total={total}
                   order={orderNumber}
-                  demicolor={pizzaOrder.demicolor}
-                  permanentcolor={pizzaOrder.permanentcolor}
-                  silkpress={pizzaOrder.silkpress}
+                  webpos={pizzaOrder.webpos}
+                  luvnft={pizzaOrder.luvnft}
+                  healxyz={pizzaOrder.healxyz}
                 />
               )}
             </div>

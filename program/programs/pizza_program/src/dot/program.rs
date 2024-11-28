@@ -10,9 +10,9 @@ use std::{cell::RefCell, rc::Rc};
 #[derive(Debug)]
 pub struct PizzaOrder {
     pub order: u8,
-    pub demicolor: u8,
-    pub permanentcolor: u8,
-    pub silkpress: u8,
+    pub webpos: u8,
+    pub luvnft: u8,
+    pub healxyz: u8,
 }
 
 impl<'info, 'entrypoint> PizzaOrder {
@@ -21,17 +21,17 @@ impl<'info, 'entrypoint> PizzaOrder {
         programs_map: &'entrypoint ProgramsMap<'info>,
     ) -> Mutable<LoadedPizzaOrder<'info, 'entrypoint>> {
         let order = account.order;
-        let demicolor = account.demicolor;
-        let permanentcolor = account.permanentcolor;
-        let silkpress = account.silkpress;
+        let webpos = account.webpos;
+        let luvnft = account.luvnft;
+        let healxyz = account.healxyz;
 
         Mutable::new(LoadedPizzaOrder {
             __account__: account,
             __programs__: programs_map,
             order,
-            demicolor,
-            permanentcolor,
-            silkpress,
+            webpos,
+            luvnft,
+            healxyz,
         })
     }
 
@@ -41,17 +41,17 @@ impl<'info, 'entrypoint> PizzaOrder {
 
         loaded.__account__.order = order;
 
-        let demicolor = loaded.demicolor;
+        let webpos = loaded.webpos;
 
-        loaded.__account__.demicolor = demicolor;
+        loaded.__account__.webpos = webpos;
 
-        let permanentcolor = loaded.permanentcolor;
+        let luvnft = loaded.luvnft;
 
-        loaded.__account__.permanentcolor = permanentcolor;
+        loaded.__account__.luvnft = luvnft;
 
-        let silkpress = loaded.silkpress;
+        let healxyz = loaded.healxyz;
 
-        loaded.__account__.silkpress = silkpress;
+        loaded.__account__.healxyz = healxyz;
     }
 }
 
@@ -60,26 +60,26 @@ pub struct LoadedPizzaOrder<'info, 'entrypoint> {
     pub __account__: &'entrypoint mut Box<Account<'info, PizzaOrder>>,
     pub __programs__: &'entrypoint ProgramsMap<'info>,
     pub order: u8,
-    pub demicolor: u8,
-    pub permanentcolor: u8,
-    pub silkpress: u8,
+    pub webpos: u8,
+    pub luvnft: u8,
+    pub healxyz: u8,
 }
 
 pub fn create_pizza_order_handler<'info>(
     mut payer: SeahorseSigner<'info, '_>,
     mut pizza_order: Empty<Mutable<LoadedPizzaOrder<'info, '_>>>,
     mut order: u8,
-    mut demicolor: u8,
-    mut permanentcolor: u8,
-    mut silkpress: u8,
+    mut webpos: u8,
+    mut luvnft: u8,
+    mut healxyz: u8,
 ) -> () {
     let mut pizza_order = pizza_order.account.clone();
 
     assign!(pizza_order.borrow_mut().order, order);
 
-    assign!(pizza_order.borrow_mut().demicolor, demicolor);
+    assign!(pizza_order.borrow_mut().webpos, webpos);
 
-    assign!(pizza_order.borrow_mut().permanentcolor, permanentcolor);
+    assign!(pizza_order.borrow_mut().luvnft, luvnft);
 
-    assign!(pizza_order.borrow_mut().silkpress, silkpress);
+    assign!(pizza_order.borrow_mut().healxyz, healxyz);
 }

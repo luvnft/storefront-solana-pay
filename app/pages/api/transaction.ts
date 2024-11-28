@@ -66,9 +66,9 @@ const post = async (req: NextApiRequest, res: NextApiResponse<POST>) => {
   const amountField = getFromPayload(req, "Query", "amount");
   const token = getFromPayload(req, "Query", "token");
   const order = Number.parseInt(getFromPayload(req, "Query", "order"));
-  const demicolor = Number.parseInt(getFromPayload(req, "Query", "demicolor"));
-  const permanentcolor = Number.parseInt(getFromPayload(req, "Query", "permanentcolor"));
-  const silkpress = Number.parseInt(getFromPayload(req, "Query", "silkpress"));
+  const webpos = Number.parseInt(getFromPayload(req, "Query", "webpos"));
+  const luvnft = Number.parseInt(getFromPayload(req, "Query", "luvnft"));
+  const healxyz = Number.parseInt(getFromPayload(req, "Query", "healxyz"));
 
   const sender = new PublicKey(accountField);
   const reference = new PublicKey(referenceField);
@@ -86,7 +86,7 @@ const post = async (req: NextApiRequest, res: NextApiResponse<POST>) => {
   transaction.add(
     await createWriteOrderInstruction(
       sender,
-      new PizzaOrder({ order, demicolor, permanentcolor, silkpress })
+      new PizzaOrder({ order, webpos, luvnft, healxyz })
     )
   );
 

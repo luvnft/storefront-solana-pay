@@ -28,11 +28,11 @@ describe("pizza_program", () => {
     console.log("Payer Address: ", provider.wallet.publicKey.toBase58());
 
     // Create order
-    const demicolor = 3;
-    const permanentcolor = 2;
-    const silkpress = 1;
+    const webpos = 3;
+    const luvnft = 2;
+    const healxyz = 1;
     const transaction = await program.methods
-      .createPizzaOrder(orderNumber, demicolor, permanentcolor, silkpress)
+      .createPizzaOrder(orderNumber, webpos, luvnft, healxyz)
       .accounts({
         payer: provider.wallet.publicKey,
         pizzaOrder: orderPublicKey,
@@ -44,13 +44,13 @@ describe("pizza_program", () => {
     const orderAccount = await program.account.pizzaOrder.fetch(orderPublicKey);
 
     console.log("Order: ", orderAccount.order);
-    console.log("Solana QR POS: ", orderAccount.demicolor);
-    console.log("Branded LUV NFT: ", orderAccount.permanentcolor);
-    console.log("HealXYZ Session: ", orderAccount.silkpress);
+    console.log("Solana QR POS: ", orderAccount.webpos);
+    console.log("Branded LUV NFT: ", orderAccount.luvnft);
+    console.log("HealXYZ Session: ", orderAccount.healxyz);
 
     assert.equal(orderAccount.order, orderNumber);
-    assert.equal(orderAccount.demicolor, demicolor);
-    assert.equal(orderAccount.permanentcolor, permanentcolor);
-    assert.equal(orderAccount.silkpress, silkpress);
+    assert.equal(orderAccount.webpos, webpos);
+    assert.equal(orderAccount.luvnft, luvnft);
+    assert.equal(orderAccount.healxyz, healxyz);
   });
 });

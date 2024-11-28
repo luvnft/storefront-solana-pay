@@ -1,7 +1,7 @@
 import { encodeURL, createQR } from '@solana/pay';
 import { FC, useEffect, useRef, useState } from 'react';
 import { PublicKey } from '@solana/web3.js';
-import { SIMULATED_BONK_MINT, SIMULATED_USDC_MINT } from '../util/const';
+import { SIMULATED_LOVE_MINT, SIMULATED_USDC_MINT } from '../util/const';
 
 
 type SupportedSplToken = {
@@ -13,9 +13,9 @@ type TransactionRequestQRProps = {
   reference: PublicKey;
   total: number;
   order: number;
-  demicolor: number;
-  permanentcolor: number;
-  silkpress: number;
+  webpos: number;
+  luvnft: number;
+  healxyz: number;
 };
 
 const queryBuilder = (baseUrl: string, params: string[][]) => {
@@ -25,7 +25,7 @@ const queryBuilder = (baseUrl: string, params: string[][]) => {
 }
 
 const PayQR: FC<TransactionRequestQRProps> = (
-  { reference, total, order, demicolor, permanentcolor, silkpress }
+  { reference, total, order, webpos, luvnft, healxyz }
 ) => {
   const [currentTokenSelection, setCurrentTokenSelection] =
     useState<SupportedSplToken>({ symbol: 'SOL', mint: 'SOL' });
@@ -37,9 +37,9 @@ const PayQR: FC<TransactionRequestQRProps> = (
       ['reference', reference.toBase58()],
       ['amount', (total * 0.001).toString()],
       ['order', order.toString()],
-      ['demicolor', demicolor.toString()],
-      ['permanentcolor', permanentcolor.toString()],
-      ['silkpress', silkpress.toString()],
+      ['webpos', webpos.toString()],
+      ['luvnft', luvnft.toString()],
+      ['healxyz', healxyz.toString()],
     ];
     if (currentTokenSelection.mint) params.push(['token', currentTokenSelection.mint]);
     const apiUrl = queryBuilder(
@@ -57,13 +57,13 @@ const PayQR: FC<TransactionRequestQRProps> = (
       ref.current.innerHTML = '';
       qr.append(ref.current);
     }
-  }, [total, reference, currentTokenSelection, order, demicolor, permanentcolor, silkpress]);
+  }, [total, reference, currentTokenSelection, order, webpos, luvnft, healxyz]);
 
   return (
-    <div className='bg-white shadow-md rounded-2xl border-solid border border-black w-auto text-center flex flex-col justify-between mx-auto'>
-      <div className='justify-self-start m-2 mt-4'>
+    <div className='flex flex-col justify-between w-auto mx-auto text-center bg-white border border-black border-solid shadow-md rounded-2xl'>
+      <div className='m-2 mt-4 justify-self-start'>
         <p>Select an SPL Token to pay with:</p>
-        <li className='flex flex-row justify-between mx-10 text-xl my-4'>
+        <li className='flex flex-row justify-between mx-10 my-4 text-xl'>
           <button
             className={`rounded-lg border-solid border border-gray-500 bg-green-600 p-2 bg-opacity-${currentTokenSelection.symbol === 'SOL' ? 20 : 60}`}
             onClick={() => setCurrentTokenSelection({ symbol: 'SOL', mint: 'SOL' })}
@@ -79,11 +79,11 @@ const PayQR: FC<TransactionRequestQRProps> = (
             USDC
           </button>
           <button
-            className={`rounded-lg border-solid border border-gray-500 bg-orange-400 p-2 bg-opacity-${currentTokenSelection.symbol === 'BONK' ? 20 : 60}`}
-            onClick={() => setCurrentTokenSelection({ symbol: 'BONK', mint: SIMULATED_BONK_MINT })}
-            disabled={currentTokenSelection.symbol === 'BONK'}
+            className={`rounded-lg border-solid border border-gray-500 bg-orange-400 p-2 bg-opacity-${currentTokenSelection.symbol === 'LOVE' ? 20 : 60}`}
+            onClick={() => setCurrentTokenSelection({ symbol: 'LOVE', mint: SIMULATED_LOVE_MINT })}
+            disabled={currentTokenSelection.symbol === 'LOVE'}
           >
-            BONK
+            LOVE
           </button>
         </li>
         {currentTokenSelection && (
@@ -97,7 +97,7 @@ const PayQR: FC<TransactionRequestQRProps> = (
           </p>
         )}
       </div>
-      <div ref={ref} className='rounded-xl overflow-hidden'></div>
+      <div ref={ref} className='overflow-hidden rounded-xl'></div>
     </div>
   );
 };

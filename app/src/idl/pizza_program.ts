@@ -51,15 +51,15 @@ export type PizzaProgram = {
           "type": "u8"
         },
         {
-          "name": "demicolor",
+          "name": "webpos",
           "type": "u8"
         },
         {
-          "name": "permanentcolor",
+          "name": "luvnft",
           "type": "u8"
         },
         {
-          "name": "silkpress",
+          "name": "healxyz",
           "type": "u8"
         }
       ]
@@ -76,15 +76,15 @@ export type PizzaProgram = {
             "type": "u8"
           },
           {
-            "name": "demicolor",
+            "name": "webpos",
             "type": "u8"
           },
           {
-            "name": "permanentcolor",
+            "name": "luvnft",
             "type": "u8"
           },
           {
-            "name": "silkpress",
+            "name": "healxyz",
             "type": "u8"
           }
         ]
@@ -146,15 +146,15 @@ export const IDL: PizzaProgram = {
           "type": "u8"
         },
         {
-          "name": "demicolor",
+          "name": "webpos",
           "type": "u8"
         },
         {
-          "name": "permanentcolor",
+          "name": "luvnft",
           "type": "u8"
         },
         {
-          "name": "silkpress",
+          "name": "healxyz",
           "type": "u8"
         }
       ]
@@ -171,15 +171,15 @@ export const IDL: PizzaProgram = {
             "type": "u8"
           },
           {
-            "name": "demicolor",
+            "name": "webpos",
             "type": "u8"
           },
           {
-            "name": "permanentcolor",
+            "name": "luvnft",
             "type": "u8"
           },
           {
-            "name": "silkpress",
+            "name": "healxyz",
             "type": "u8"
           }
         ]
